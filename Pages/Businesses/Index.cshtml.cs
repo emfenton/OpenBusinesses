@@ -23,7 +23,9 @@ namespace RazorPagesBusiness.Pages.Businesses
 
         public async Task OnGetAsync()
         {
-            Business = await _context.Business.ToListAsync();
+            Business = await _context.Business
+            .Where(b => b.Verified == true)
+            .ToListAsync();
         }
     }
 }
