@@ -25,28 +25,32 @@ namespace RazorPagesBusiness.Models
                     {
                         Name = "Koffie",
                         Type = "Coffee shop",
-                        Website = "www.thekoffie.co"
+                        Website = "www.thekoffie.co",
+                        Contact = "IG: @thekoffie.co"
                     },
 
                     new Business
                     {
                         Name = "Crow Salon",
                         Type = "Hair salon",
-                        Website = "www.crowsalon.com"
+                        Website = "www.crowsalon.com",
+                        Contact = "crowsalon@gmail.com"
                     },
 
                     new Business
                     {
                         Name = "Alce 101",
                         Type = "Restaurant",
-                        Website = "www.alce101.com"
+                        Website = "www.alce101.com",
+                        Contact = "IG: @alce101"
                     },
 
                     new Business
                     {
                         Name = "Sunless Revolution",
                         Type = "Tanning salon",
-                        Website = "www.sunless-revolution.com"
+                        Website = "www.sunless-revolution.com",
+                        Contact = "appointments@sunless-revolution.com"
                     }
                 );
                 context.SaveChanges();

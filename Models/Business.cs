@@ -19,6 +19,9 @@ namespace RazorPagesBusiness.Models
 
         [RequiredAttribute]        
         public bool Verified { get; set; }
+
+        [RequiredAttribute]        
+        public string Contact { get; set; }
     
     }
 }
