@@ -11,5 +11,6 @@ namespace RazorPagesBusiness.Data
         }
 
         public DbSet<RazorPagesBusiness.Models.Business> Business { get; set; }
+        public DbSet<RazorPagesBusiness.Models.BusinessType> BusinessType { get; set; }
     }
 }
