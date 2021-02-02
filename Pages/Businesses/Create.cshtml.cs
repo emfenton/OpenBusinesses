@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using RazorPagesBusiness.Data;
 using RazorPagesBusiness.Models;
 
@@ -18,25 +19,36 @@ namespace RazorPagesBusiness.Pages.Businesses
         {
             _context = context;
         }
-
-        public IActionResult OnGet()
+        public IList<BusinessType> BusinessType { get;set; }
+        public async Task OnGetAsync()
         {
-            return Page();
+            BusinessType =  await _context.BusinessType
+            .ToListAsync();
+            
         }
 
         [BindProperty]
-        public Business Business { get; set; }
+        public UserBusinessInput UserBusinessInput { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            BusinessType =  await _context.BusinessType
+            .ToListAsync();
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            _context.Business.Add(Business);
-            await _context.SaveChangesAsync();
+            var business = new Business
+            {
+                Name = UserBusinessInput.Name,
+                Type = BusinessType.,
+                Website = UserBusinessInput.Website,
+                Contact = UserBusinessInput.Contact
+            };
+            // _context.Business.Add(Business);
+            // await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

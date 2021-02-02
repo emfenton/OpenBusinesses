@@ -13,28 +13,26 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Business.Name" class="control-label"></label>
-                <input asp-for="Business.Name" class="form-control" />
-                <span asp-validation-for="Business.Name" class="text-danger"></span>
+                <label asp-for="UserBusinessInput.Name" class="control-label"></label>
+                <input asp-for="UserBusinessInput.Name" class="form-control" />
+                <span asp-validation-for="UserBusinessInput.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label> Business Category</label>
-                <select id = "myList">
-                <option value = "0">Coffee Shop</option>
-                <option value = "1">Creative Services</option>
-                <option value = "2">Health & Fitness</option>
-                <option value = "3">Restaurant</option>
-                <option value = "4">Retail</option> 
-                <option value = "5">Other</option> 
-                </select>
-                @* <label asp-for="Business.Type" class="control-label"></label>
-                <input asp-for="Business.Type" class="form-control" />
-                <span asp-validation-for="Business.Type" class="text-danger"></span> *@
+
+                        <select asp-for = "UserBusinessInput.BusinessTypeId">
+                            @foreach (var item in Model.BusinessType)
+                            {
+                                <option value = "@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Name)</option>
+                            }
+                        </select>      
+                
             </div>
+
             <div class="form-group">
-                <label asp-for="Business.Website" class="control-label"></label>
-                <input asp-for="Business.Website" class="form-control" />
-                <span asp-validation-for="Business.Website" class="text-danger"></span>
+                <label asp-for="UserBusinessInput.Website" class="control-label"></label>
+                <input asp-for="UserBusinessInput.Website" class="form-control" />
+                <span asp-validation-for="UserBusinessInput.Website" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

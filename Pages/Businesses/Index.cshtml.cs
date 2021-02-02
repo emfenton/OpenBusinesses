@@ -22,10 +22,12 @@ namespace RazorPagesBusiness.Pages.Businesses
         public IList<Business> Business { get;set; }
 
         public async Task OnGetAsync()
-        {
+        {    
             Business = await _context.Business
+            .Include("Type")
             .Where(b => b.Verified == true)
             .ToListAsync();
+            
         }
     }
 }

@@ -19,6 +19,7 @@ namespace RazorPagesBusiness
 
                 try
                 {
+                    Console.WriteLine("we hit line 22");
                     SeedData.Initialize(services);
                 }
                 catch (Exception ex)
